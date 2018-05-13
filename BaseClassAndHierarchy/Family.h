@@ -2,9 +2,8 @@
 #include "Student.h"
 #include "Person.h"
 class Family :
-	public Student,  public Person
+	  public Person
 {
-	
 
 public:
 	Family();
