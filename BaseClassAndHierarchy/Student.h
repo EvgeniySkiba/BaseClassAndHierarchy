@@ -23,7 +23,7 @@ public:
 		return groupName;
 	}
 
-	int get_averageScore() {
+	int get_averageScore() const {
 		return averageScore;
 	}
 

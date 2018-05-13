@@ -29,19 +29,45 @@ Hostel::~Hostel()
 
 void Hostel::PrintToFile()
 {
-	std::ofstream out("____HOSTEL____.txt", std::ios::app);
-
 	if (this->familyList == NULL)
 		return;
 
-	int n = sizeof(this->familyList) / sizeof((this->familyList));         // число строк
+	//размер 
+	int size = sizeof(this->familyList) / sizeof((this->familyList));         // число строк
+
+	// сортируем 
+	Family temp;
+
+	for (int j = 1; j <= size - 1; j++)
+	{
+		for (int i = 0; i <= size; i++)
+		{
+			if ((familyList[i] > familyList[i + 1]));
+			{
+				temp = familyList[i];
+				familyList[i] = familyList[i + 1];
+				familyList[i] = temp;
+			}
+		}
+	}
+///	cout << "Перечень отсортирован" << endl;
+	
+	//поток для записи в файл
+
+	std::ofstream out("____HOSTEL____.txt", std::ios::app);
 
 	try {
 
 		if (out.is_open())
 		{
-			for (int i = 0; i < n; i++)
+			for (int i = 0; i <size; i++)
 			{
+
+
+				// не выводим тех у которых доход больше  двух минимальных зарплат 
+				if ((&familyList[0])->get_averageEarnings() > 2 * (&familyList[0])->Min_salary)
+					continue;
+
 				out << setw(18) << "Фамилия  : " << (&familyList[0])->get_lName() << endl;
 				out.setf(ios::left);
 

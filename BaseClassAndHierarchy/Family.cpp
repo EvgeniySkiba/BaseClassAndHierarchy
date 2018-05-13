@@ -4,6 +4,8 @@
 
 Family::Family()
 {
+
+	Min_salary = 2500;
 }
 
 
