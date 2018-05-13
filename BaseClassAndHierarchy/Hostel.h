@@ -1,22 +1,21 @@
 #pragma once
 #include "Family.h"
-
 #include <fstream>
 
 class Hostel
 {
-	Student * familyList;
+	Family * familyList;
 public:
 	Hostel();
 
-	Hostel(Student * student);
+	Hostel(Family * student);
 	virtual ~Hostel();
 
 	friend void Run(Hostel &);
 
 	void PrintToFile();
 
-	Student *  get_StudentsList()
+	Family *  get_StudentsList()
 	{
 		return familyList;
 	}

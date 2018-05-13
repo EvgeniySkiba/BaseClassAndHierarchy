@@ -8,11 +8,11 @@ Hostel::Hostel()
 
 
 
-Hostel::Hostel(Student * _student)
+Hostel::Hostel(Family * _student)
 {
 	int n = sizeof(_student) / sizeof(_student[0]);         // число строк
 
-	familyList = new Student[n + 1];
+	familyList = new Family[n + 1];
 
 	for (int i = 0; i <= n; i++)
 	{
