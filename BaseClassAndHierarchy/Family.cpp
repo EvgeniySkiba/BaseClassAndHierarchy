@@ -5,17 +5,22 @@
 Family::Family()
 {
 
-	Min_salary = 2500;
 }
 
+Family::Family(std::string fName_, std::string mName_, std::string lName_, int age_, std::string groupName_, float averageScore_, float averageEarnings_) 
+	: Student(  fName_,  mName_,  lName_,  age_,  groupName_,  averageScore_)
+
+{
+	averageEarnings = averageEarnings_;
+}
 
 Family::~Family()
 {
+	
+	
 }
 
-
-
-void  Person::print()
+void  Family::print()
 {
 	cout << "\n";
 	cout.setf(ios::left);

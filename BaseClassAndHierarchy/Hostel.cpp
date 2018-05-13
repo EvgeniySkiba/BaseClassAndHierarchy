@@ -50,9 +50,9 @@ void Hostel::PrintToFile()
 			}
 		}
 	}
-///	cout << "Перечень отсортирован" << endl;
-	
-	//поток для записи в файл
+	///	cout << "Перечень отсортирован" << endl;
+
+		//поток для записи в файл
 
 	std::ofstream out("____HOSTEL____.txt", std::ios::app);
 
@@ -60,12 +60,12 @@ void Hostel::PrintToFile()
 
 		if (out.is_open())
 		{
-			for (int i = 0; i <size; i++)
+			for (int i = 0; i < size; i++)
 			{
 
 
 				// не выводим тех у которых доход больше  двух минимальных зарплат 
-				if ((&familyList[0])->get_averageEarnings() > 2 * (&familyList[0])->Min_salary)
+				if ((&familyList[0])->get_averageEarnings() > (&familyList[0])->Min_salary)
 					continue;
 
 				out << setw(18) << "Фамилия  : " << (&familyList[0])->get_lName() << endl;

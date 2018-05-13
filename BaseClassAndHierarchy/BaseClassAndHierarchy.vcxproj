@@ -151,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="Family.h" />
     <ClInclude Include="Hostel.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
