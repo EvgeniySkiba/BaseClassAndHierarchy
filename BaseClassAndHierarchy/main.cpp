@@ -44,7 +44,7 @@ int main()
 	famillyArray[6] = *stud7;
 	famillyArray[7] = *stud8;
 
-	Hostel * hostel = new Hostel(famillyArray);
+	Hostel * hostel = new Hostel(famillyArray,8);
 
 	hostel->get_StudentsList();
 

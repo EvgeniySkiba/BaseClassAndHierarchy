@@ -8,13 +8,13 @@ Hostel::Hostel()
 
 
 
-Hostel::Hostel(Family * _student)
+Hostel::Hostel(Family * _student, int num_)
 {
-	int n = sizeof(_student) / sizeof(_student[0]);         // число строк
+	num = num_;
+	
+	familyList = new Family[num_ + 1];
 
-	familyList = new Family[n + 1];
-
-	for (int i = 0; i <= n; i++)
+	for (int i = 0; i < num_; i++)
 	{
 		familyList[i] = _student[i];
 	}
@@ -33,14 +33,14 @@ void Hostel::PrintToFile()
 		return;
 
 	//размер 
-	int size = sizeof(this->familyList) / sizeof((this->familyList));         // число строк
+	int size = this->num;         // число строк
 
 	// сортируем 
 	Family temp;
 
-	for (int j = 1; j <= size - 1; j++)
+	for (int j = 1; j < size - 1; j++)
 	{
-		for (int i = 0; i <= size; i++)
+		for (int i = 0; i < size; i++)
 		{
 			if ((familyList[i] > familyList[i + 1]));
 			{
@@ -65,7 +65,7 @@ void Hostel::PrintToFile()
 
 
 				// не выводим тех у которых доход больше  двух минимальных зарплат 
-				if ((&familyList[0])->get_averageEarnings() > (&familyList[0])->Min_salary)
+				if ((&familyList[0])->get_averageEarnings() > 2 * (&familyList[0])->Min_salary)
 					continue;
 
 				out << setw(18) << "Фамилия  : " << (&familyList[0])->get_lName() << endl;

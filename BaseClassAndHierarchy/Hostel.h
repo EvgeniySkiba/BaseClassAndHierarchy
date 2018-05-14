@@ -5,10 +5,11 @@
 class Hostel
 {
 	Family * familyList;
+	int num;
 public:
 	Hostel();
 
-	Hostel(Family * student);
+	Hostel(Family * student,  int num_);
 	virtual ~Hostel();
 
 	friend void Run(Hostel &);
