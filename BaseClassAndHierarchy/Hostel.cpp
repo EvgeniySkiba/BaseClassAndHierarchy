@@ -11,7 +11,7 @@ Hostel::Hostel()
 Hostel::Hostel(Family * _student, int num_)
 {
 	num = num_;
-	
+
 	familyList = new Family[num_ + 1];
 
 	for (int i = 0; i < num_; i++)
@@ -36,20 +36,22 @@ void Hostel::PrintToFile()
 	int size = this->num;         // число строк
 
 	// сортируем 
-	Family temp;
-
-	for (int j = 1; j < size - 1; j++)
+	for (int i = 0; i < size - 1; i++)
 	{
-		for (int i = 0; i < size; i++)
+		for (int j = 0; j < size - 1; j++)
 		{
-			if ((familyList[i] > familyList[i + 1]));
+			//int res = strcmp(cPointers[j + 1], cPointers[j]);
+		
+			if ((familyList[j+1].get_averageEarnings() < familyList[j].get_averageEarnings()))
 			{
-				temp = familyList[i];
-				familyList[i] = familyList[i + 1];
-				familyList[i] = temp;
+				const Family tmp = (familyList[j + 1]);
+				(familyList[j + 1]) = (familyList[j]);
+				(familyList[j]) = tmp;
+
 			}
 		}
 	}
+
 	///	cout << "ѕеречень отсортирован" << endl;
 
 		//поток дл¤ записи в файл
@@ -66,7 +68,7 @@ void Hostel::PrintToFile()
 				// for debug 
 				int currMinSalary = 2 * (&familyList[i])->Min_salary;
 				int currentSalary = (&familyList[i])->get_averageEarnings();
-			
+
 				// не выводим тех у которых доход больше  двух минимальных зарплат 
 				if (currentSalary > currMinSalary)
 					continue;
@@ -75,23 +77,23 @@ void Hostel::PrintToFile()
 				out.setf(ios::left);
 				out << "|";
 
-				out << setw(18) << "Имя  : " << (&familyList[i])->get_fName() ;
+				out << setw(18) << "Имя  : " << (&familyList[i])->get_fName();
 				out.setf(ios::left);
 				out << "|";
 
-				out << setw(18) << "Отчество  : " << (&familyList[i])->get_mName() ;
+				out << setw(18) << "Отчество  : " << (&familyList[i])->get_mName();
 				out.setf(ios::left);
 				out << "|";
 
-				out << setw(18) << "Возраст: " << (&familyList[i])->get_Age() ;
+				out << setw(18) << "Возраст: " << (&familyList[i])->get_Age();
 				out.setf(ios::left);
 				out << "|";
 
-				out << setw(18) << "Группа: " << (&familyList[i])->get_groupName() ;
+				out << setw(18) << "Группа: " << (&familyList[i])->get_groupName();
 				out.setf(ios::left);
 				out << "|";
 
-				out << setw(18) << "Средний бал: " << (&familyList[i])->get_averageScore()<<endl;
+				out << setw(18) << "Средний бал: " << (&familyList[i])->get_averageScore() << endl;
 				out.setf(ios::left);
 				out << "|";
 
