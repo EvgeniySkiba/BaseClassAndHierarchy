@@ -21,23 +21,25 @@ void  Student::print()
 	cout << "\n";
 	cout.setf(ios::left);
 
-	cout << setw(18) << "Фамилия  : " << this->fName << endl;
+	cout << setw(18) << "Фамилия  : " << this->fName;
 	cout.setf(ios::left);
 
-	cout << setw(18) << "Имя  : " << this->mName << endl;
+	cout << setw(18) << "Имя  : " << this->mName ;
 	cout.setf(ios::left);
 
-	cout << setw(18) << "Отчество  : " << this->lName << endl;
+	cout << setw(18) << "Отчество  : " << this->lName ;
 	cout.setf(ios::left);
 
-	cout << setw(18) << " Возраст: " << this->age << endl;
+	cout << setw(18) << " Возраст: " << this->age ;
 	cout.setf(ios::left);
 
-	cout << setw(8) << " Средний бал: " << this->averageScore << endl;
+	cout << setw(8) << " Средний бал: " << this->averageScore ;
 	cout.setf(ios::left);
 
-	cout << setw(8) << " Группа: " << this->groupName << endl;
+	cout << setw(8) << " Группа: " << this->groupName ;
 	cout.setf(ios::left);
+
+	cout << endl << "------------------" << endl;
 }
 
 istream & operator >> (istream & stream, Student & o)

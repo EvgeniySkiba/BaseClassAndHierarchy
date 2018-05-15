@@ -9,9 +9,9 @@ class Person
 {
 
 protected:
-	std::string fName;
-	std::string mName;
-	std::string lName;
+	std::string fName; // имя
+	std::string mName; // отчество
+	std::string lName; // фамилия
 	int age;
 
 public:
@@ -22,7 +22,8 @@ public:
 
 
 	void set_Age(int age_) { age = age_; }
-	string get_Name() {
+	
+	string get_fName() {
 		return fName;
 	}
 

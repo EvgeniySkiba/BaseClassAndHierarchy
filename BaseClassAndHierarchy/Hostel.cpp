@@ -1,4 +1,4 @@
-#include "Hostel.h"
+п»ї#include "Hostel.h"
 
 
 
@@ -32,10 +32,10 @@ void Hostel::PrintToFile()
 	if (this->familyList == NULL)
 		return;
 
-	//размер 
-	int size = this->num;         // число строк
+	//СЂР°Р·РјРµСЂ 
+	int size = this->num;         // С‡РёСЃР»Рѕ СЃС‚СЂРѕРє
 
-	// сортируем 
+	// СЃРѕСЂС‚РёСЂСѓРµРј 
 	Family temp;
 
 	for (int j = 1; j < size - 1; j++)
@@ -50,11 +50,11 @@ void Hostel::PrintToFile()
 			}
 		}
 	}
-	///	cout << "Перечень отсортирован" << endl;
+	///	cout << "С•РµСЂРµС‡РµРЅСЊ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅ" << endl;
 
-		//поток для записи в файл
+		//РїРѕС‚РѕРє РґР»В¤ Р·Р°РїРёСЃРё РІ С„Р°Р№Р»
 
-	std::ofstream out("____HOSTEL____.txt", std::ios::app);
+	std::ofstream out("____HOSTEL____.txt", std::ios::trunc);
 
 	try {
 
@@ -63,28 +63,42 @@ void Hostel::PrintToFile()
 			for (int i = 0; i < size; i++)
 			{
 
-
-				// не выводим тех у которых доход больше  двух минимальных зарплат 
-				if ((&familyList[0])->get_averageEarnings() > 2 * (&familyList[0])->Min_salary)
+				// for debug 
+				int currMinSalary = 2 * (&familyList[i])->Min_salary;
+				int currentSalary = (&familyList[i])->get_averageEarnings();
+			
+				// РЅРµ РІС‹РІРѕРґРёРј С‚РµС… Сѓ РєРѕС‚РѕСЂС‹С… РґРѕС…РѕРґ Р±РѕР»СЊС€Рµ  РґРІСѓС… РјРёРЅРёРјР°Р»СЊРЅС‹С… Р·Р°СЂРїР»Р°С‚ 
+				if (currentSalary > currMinSalary)
 					continue;
 
-				out << setw(18) << "Фамилия  : " << (&familyList[0])->get_lName() << endl;
+				out << setw(18) << "Р¤Р°РјРёР»РёСЏ  : " << (&familyList[i])->get_lName();
 				out.setf(ios::left);
+				out << "|";
 
-				out << setw(18) << "Имя  : " << (&familyList[0])->get_Name() << endl;
+				out << setw(18) << "РРјСЏ  : " << (&familyList[i])->get_fName() ;
 				out.setf(ios::left);
+				out << "|";
 
-				out << setw(18) << "Отчество  : " << (&familyList[0])->get_mName() << endl;
+				out << setw(18) << "РћС‚С‡РµСЃС‚РІРѕ  : " << (&familyList[i])->get_mName() ;
 				out.setf(ios::left);
+				out << "|";
 
-				out << setw(18) << " Возраст: " << (&familyList[0])->get_Age() << endl;
+				out << setw(18) << "Р’РѕР·СЂР°СЃС‚: " << (&familyList[i])->get_Age() ;
 				out.setf(ios::left);
+				out << "|";
 
-				out << setw(18) << "Группа: " << (&familyList[0])->get_groupName() << endl;
+				out << setw(18) << "Р“СЂСѓРїРїР°: " << (&familyList[i])->get_groupName() ;
 				out.setf(ios::left);
+				out << "|";
 
-				out << setw(18) << " Средний бал: " << (&familyList[0])->get_averageScore() << endl;
+				out << setw(18) << "РЎСЂРµРґРЅРёР№ Р±Р°Р»: " << (&familyList[i])->get_averageScore()<<endl;
 				out.setf(ios::left);
+				out << "|";
+
+				out << setw(18) << "Р”РѕС…РѕРґ: " << (&familyList[i])->get_averageEarnings() << endl;
+				out.setf(ios::left);
+				out << "|";
+				out << "-----------------------------------------" << endl;
 			}
 		}
 
@@ -93,7 +107,7 @@ void Hostel::PrintToFile()
 	}
 	catch (const char* msg)
 	{
-		cout << "Ошибка записи в файл" << endl;
+		cout << "РћС€РёР±РєР° Р·Р°РїРёСЃРё РІ С„Р°Р№Р»" << endl;
 	}
 }
 
@@ -103,7 +117,7 @@ void Run(Hostel & f)
 	if (f.familyList == NULL)
 		return;
 
-	int n = sizeof(f.familyList) / sizeof(f.familyList[0]);         // число строк
+	int n = sizeof(f.familyList) / sizeof(f.familyList[0]);         // С‡РёСЃР»Рѕ СЃС‚СЂРѕРє
 
 	for (int i = 0; i < n; i++)
 	{
